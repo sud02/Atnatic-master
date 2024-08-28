@@ -147,7 +147,7 @@ header.visible {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 70vh; /* Default height for larger screens */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -164,26 +164,35 @@ header.visible {
 
 .hero-video {
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* Default height for larger screens */
   object-fit: cover; /* Ensures video covers the container */
 }
 
 /* Mobile View */
 @media (max-width: 768px) {
+  .hero-section {
+    height: 90vh; /* Increased height for mobile view */
+    padding-top: 60px; /* Adjust padding if needed */
+  }
+
   .video-container {
-    height: auto;
+    height: 100%;
     width: 100%;
   }
 
   .hero-video {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Adjusted to fill the new container height */
     object-fit: cover;
   }
 }
 
 /* Desktop View */
 @media (min-width: 769px) {
+  .hero-section {
+    height: 80vh; /* Default height for larger screens */
+  }
+
   .video-container {
     height: 100vh;
     width: 100vw;
@@ -244,6 +253,14 @@ header.visible {
   transition: top 0.7s ease, font-size 0.7s ease, color 0.7s ease;
   user-select: none;
 }
+@media screen and (-webkit-min-device-pixel-ratio:5) {
+  .sticky {
+      /* Safari-specific styles */
+      transition: top 0.5s ease, color 0.5s ease;
+      will-change: top, color;
+  }
+}
+
 
 
 /* Font Face */
