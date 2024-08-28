@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
-import ProductSection from './components/ProductSection';  // Import the new component
+import ProductSection from './components/ProductSection'; 
+import ProductPage from './components/ProductPage';  // Import the ProductPage component
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -28,10 +29,10 @@ function App() {
         if (header) {
             if (window.scrollY > threshold) {
                 header.classList.add('visible');
-                header.classList.remove('pre-scroll'); // Remove pre-scroll class after scrolling
+                header.classList.remove('pre-scroll');
             } else {
                 header.classList.remove('visible');
-                header.classList.add('pre-scroll'); // Add pre-scroll class before scrolling
+                header.classList.add('pre-scroll');
             }
         }
     
@@ -46,7 +47,7 @@ function App() {
     
 
     useEffect(() => {
-        headerRef.current.classList.add('pre-scroll'); // Add pre-scroll class initially
+        headerRef.current.classList.add('pre-scroll');
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -66,9 +67,10 @@ function App() {
                 <Route path="/" element={
                     <>
                         <HeroSection ref={heroTextRef} />
-                        <ProductSection /> {/* Add the ProductSection here */}
+                        <ProductSection />
                     </>
                 } />
+                <Route path="/product" element={<ProductPage />} /> {/* Add the ProductPage route */}
             </Routes>
         </div>
     );
