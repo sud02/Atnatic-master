@@ -157,18 +157,7 @@ header.visible {
 .hero-section {
   position: relative;
   width: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-
   height: 90vh;
-
-=======
-  height: 70vh;
->>>>>>> parent of f582b2f (Update App.css)
-=======
-  height: 70vh;
->>>>>>> parent of f582b2f (Update App.css)
   overflow: hidden;
   display: flex;
   justify-content: center;
