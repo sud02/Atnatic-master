@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from './components/Header';
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
@@ -70,7 +72,12 @@ function App() {
                         <ProductSection />
                     </>
                 } />
-                <Route path="/product" element={<ProductPage />} /> {/* Add the ProductPage route */}
+                <Route path="/product" element={
+
+                    <ProductPage />
+                    
+                    
+                    } /> 
             </Routes>
         </div>
     );
