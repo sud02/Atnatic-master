@@ -7,7 +7,7 @@ import Header from './components/Header';
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection'; 
-import ProductPage from './components/ProductPage';
+import ProductPage from './components/ProductPage';  // Import the ProductPage component
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);

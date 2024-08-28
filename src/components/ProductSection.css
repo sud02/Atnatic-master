@@ -28,10 +28,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 6px; /* Adjust horizontal padding only */
+  padding: 6px;
   background-color: #fff;
-  margin-top: 0; /* Remove top margin */
 }
+
 .product-card {
   flex: 1 1 calc(23% - 10px); /* Responsive width with margin consideration */
   margin-bottom: 10px;

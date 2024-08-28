@@ -37,16 +37,16 @@ const ProductCarousel = () => {
       {/* The slideshow/carousel */}
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="Static/ProductImgs/FIRE.jpg" alt="FIRE" className="d-block" />
+          <img src="/Static/ProductImgs/FIRE.jpg" alt="FIRE" className="d-block" />
         </div>
         <div className="carousel-item">
-          <img src="Static/ProductImgs/FLORAL.jpg" alt="FLORAL" className="d-block" />
+          <img src="/Static/ProductImgs/FLORAL.jpg" alt="FLORAL" className="d-block" />
         </div>
         <div className="carousel-item">
-          <img src="Static/ProductImgs/LIVE.jpg" alt="LIVE" className="d-block" />
+          <img src="/Static/ProductImgs/LIVE.jpg" alt="LIVE" className="d-block" />
         </div>
         <div className="carousel-item">
-          <img src="Static/ProductImgs/PIGEON.jpg" alt="PIGEON" className="d-block" />
+          <img src="/Static/ProductImgs/PIGEON.jpg" alt="PIGEON" className="d-block" />
         </div>
       </div>
 
