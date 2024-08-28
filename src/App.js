@@ -24,15 +24,17 @@ function App() {
         const header = headerRef.current;
         const heroText = heroTextRef.current;
         const threshold = header ? header.offsetHeight : 0;
-
+    
         if (header) {
             if (window.scrollY > threshold) {
                 header.classList.add('visible');
+                header.classList.remove('pre-scroll'); // Remove pre-scroll class after scrolling
             } else {
                 header.classList.remove('visible');
+                header.classList.add('pre-scroll'); // Add pre-scroll class before scrolling
             }
         }
-
+    
         if (heroText) {
             if (window.scrollY >= threshold) {
                 heroText.classList.add('sticky');
@@ -41,12 +43,14 @@ function App() {
             }
         }
     };
+    
 
     useEffect(() => {
+        headerRef.current.classList.add('pre-scroll'); // Add pre-scroll class initially
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
+    
     useEffect(() => {
         if (location.pathname === '/') {
             window.scrollTo(0, 0);

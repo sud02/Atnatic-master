@@ -12,6 +12,41 @@ h1, h2, h3, p {
   font-weight: normal;
 }
 
+
+
+/* Header styles before scrolling */
+header.pre-scroll {
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+  visibility: visible; /* Ensure the header is visible before scrolling */
+  opacity: 1; /* Ensure the header is fully visible before scrolling */
+  color: #fff; /* Text color for elements inside the header */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for color changes */
+}
+/* Pre-scroll state */
+header.pre-scroll .menu-toggle span {
+  background-color: white; /* Change hamburger icon color to white */
+}
+
+/* Post-scroll state */
+header.visible .menu-toggle span {
+  background-color: black; /* Change back to black after scrolling */
+}
+
+header.pre-scroll .header-links ul li a {
+  color: #fff; /* White text color for links before scrolling */
+}
+
+/* Adjust icon colors in the pre-scroll state */
+header.pre-scroll .header-icons a img {
+  filter: brightness(0) invert(1); /* Invert icon colors for visibility */
+}
+
+
+
+
+
+
+
 header {
   display: flex;
   align-items: center;
