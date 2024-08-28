@@ -3,14 +3,48 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; /* Improve text rendering */
+  -moz-osx-font-smoothing: grayscale; /* Improve text rendering on Mac */
+}
+h1, h2, h3, p {
+  font-family: "GrenobleSerial-Xbold-Regular", sans-serif; /* Ensure font-family is correct */
+  font-weight: normal; /* Ensure weight is set correctly */
 }
 
-h1, h2, h3, p {
-  font-family: "GrenobleSerial-Xbold-Regular", sans-serif;
-  font-weight: normal;
+
+
+/* Header styles before scrolling */
+header.pre-scroll {
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+  visibility: visible; /* Ensure the header is visible before scrolling */
+  opacity: 1; /* Ensure the header is fully visible before scrolling */
+  color: #fff; /* Text color for elements inside the header */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition effect for color changes */
 }
+/* Pre-scroll state */
+header.pre-scroll .menu-toggle span {
+  background-color: white; /* Change hamburger icon color to white */
+}
+
+/* Post-scroll state */
+header.visible .menu-toggle span {
+  background-color: black; /* Change back to black after scrolling */
+}
+
+header.pre-scroll .header-links ul li a {
+  color: #fff; /* White text color for links before scrolling */
+}
+
+/* Adjust icon colors in the pre-scroll state */
+header.pre-scroll .header-icons a img {
+  filter: brightness(0) invert(1); /* Invert icon colors for visibility */
+}
+
+
+
+
+
+
 
 header {
   display: flex;
@@ -21,18 +55,20 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1001;
-  opacity: 0;
-  visibility: hidden;
+  z-index: 1001; /* Ensure it's lower than the sticky text */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
   transition: opacity 0.3s ease, visibility 0.3s ease;
   user-select: none;
 }
 
+/* Show Header When Scrolled */
 header.visible {
   opacity: 1;
   visibility: visible;
 }
 
+/* Safari-specific handling */
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   header {
     transition: opacity 0.5s ease, pointer-events 0.5s ease;
@@ -69,10 +105,10 @@ header.visible {
   justify-content: flex-end;
   flex: 1;
   padding-right: 10px;
-  position: fixed;
-  top: 20px;
-  right: 5px;
-  z-index: 1000;
+  position: fixed; /* Ensure icons stay visible */
+  top: 20px; /* Adjust as needed */
+  right: 5px; /* Adjust as needed */
+  z-index: 1000; /* Ensure icons stay above other content */
 }
 
 .header-icons a img {
@@ -80,6 +116,7 @@ header.visible {
   height: 23px;
 }
 
+/* Ensure that menu toggle displays correctly */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -88,33 +125,35 @@ header.visible {
 }
 
 .menu-toggle span {
-  width: 24px;
+  width: 24px; /* Decrease the width of the bars */
   height: 2px;
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: background-color 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.6); /* Adjust transparency */
+  transition: background-color 0.3s ease; /* Smooth transition for color change */
 }
 
+/* Add a hover effect for better visibility */
 .menu-toggle:hover span {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Darker on hover */
 }
 
+/* Mobile Specific Styles */
 @media (max-width: 768px) {
   .header-links {
-    display: none;
+    display: none; /* Hide the links on smaller screens */
   }
 
   .menu-toggle {
-    display: flex;
+    display: flex; /* Show hamburger menu on smaller screens */
   }
 
   .hero-section {
-    padding-top: 60px;
+    padding-top: 60px; /* Adjust for header height on mobile */
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 55px;
+    padding-top: 55px; /* Further adjustment for smaller mobile view */
   }
 }
 
@@ -122,15 +161,13 @@ header.visible {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 0; /* Remove top padding */
-  margin-bottom: 0; /* Remove bottom margin */
+  padding-top: 80px; 
 }
-
 
 .hero-image-left {
   position: relative;
@@ -152,7 +189,7 @@ header.visible {
 .hero-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures video covers the container */
 }
 
 /* Mobile View */
@@ -160,10 +197,10 @@ header.visible {
   .video-container {
     height: 350px;
     width: 100%;
-    padding-bottom: 177.78%;
+    padding-bottom: 177.78%; /* 9:16 aspect ratio */
     position: relative;
   }
-
+/* testinggggg*/
   .hero-video {
     position: absolute;
     top: 0;
@@ -174,22 +211,9 @@ header.visible {
   }
 }
 
-/* Adjust for Desktop */
-@media (min-width: 769px) {
-  .hero-section {
-    height: 100vh;
-    padding-top: 0;
-  }
-
-  .hero-video {
-    width: 150%; /* Increase width for a wider appearance */
-    height: auto; /* Maintain aspect ratio */
-  }
-}
-
 .scroll-symbol {
   position: absolute;
-  bottom: 1%;
+  bottom: 1%; /* Adjust this value for better positioning */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -211,30 +235,31 @@ header.visible {
   color: rgba(255, 255, 255, 0.3);
   letter-spacing: 0.5px;
 }
-
 .hero-scroll {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-
 .hero-scroll {
   -webkit-text-stroke: 0.5px transparent;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Adjust these values if needed to ensure the text is visible and well-positioned */
 .sticky {
   position: fixed;
-  top: -6px;
+  top: -6px; /* Adjust as needed */
   left: 51%;
   transform: translateX(-50%);
-  font-size: 2rem;
-  color: #000;
-  z-index: 1001;
+  font-size: 2rem; /* Adjust as needed */
+  color: #000; /* Ensure text color contrasts with background */
+  z-index: 1001; /* Higher than header's z-index */
   transition: top 0.7s ease, font-size 0.7s ease, color 0.7s ease;
   user-select: none;
 }
 
+/* Font Face */
 @font-face {
   font-family: "GrenobleSerial-Xbold-Medium";
   src: url("/public/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
@@ -243,7 +268,6 @@ header.visible {
 h1 {
   font-family: "GrenobleSerial-Xbold-Medium";
 }
-
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .hero-scroll {
     animation: repaint 0.1s;
@@ -254,29 +278,3 @@ h1 {
     100% { opacity: 1; }
   }
 }
-/* Adjust for Desktop */
-/* Adjust for Desktop */
-@media (min-width: 769px) {
-  .hero-section {
-    height: 90vh; /* Adjusted height for larger screens */
-    padding-top: 0;
-    padding-bottom: 0px; /* Ensure no gap below */
-  }
-
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 86.25%; /* 16:9 aspect ratio */
-    height: 0;
-  }
-
-  .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the video covers the container while maintaining 16:9 ratio */
-  }
-}
-
